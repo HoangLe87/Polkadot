@@ -1,5 +1,5 @@
 [package]
-name = "pair_contract"
+name = "uniswap_v2"
 version = "0.1.0"
 authors = ["Stake Technologies <devops@stake.co.jp>"]
 edition = "2021"
@@ -16,13 +16,12 @@ scale = { package = "parity-scale-codec", version = "3", default-features = fals
 scale-info = { version = "2", default-features = false, features = ["derive"], optional = true }
 
 openbrush = { tag = "v2.3.0", git = "https://github.com/Supercolony-net/openbrush-contracts", default-features = false, features = ["psp22"] }
-uniswap = { path = "../../logics", default-features = false }
 
 [lib]
-name = "pair_contract"
+name = "uniswap_v2"
 path = "lib.rs"
 crate-type = [
-    "cdylib"
+    "rlib",
 ]
 
 [features]
@@ -38,12 +37,4 @@ std = [
     "scale-info",
     "scale-info/std",
     "openbrush/std",
-    "uniswap/std"
 ]
-ink-as-dependency = []
-
-[profile.dev]
-overflow-checks = false
-
-[profile.release]
-overflow-checks = false
