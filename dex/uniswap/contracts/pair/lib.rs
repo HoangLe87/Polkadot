@@ -45,7 +45,14 @@ pub mod pair {
         spender: AccountId,
         value: Balance,
     }
-
+    
+    #[ink(event)]
+    pub struct Mint {
+        #[ink(topic)]
+        pub sender: AccountId,
+        pub amount_0: Balance,
+        pub amount_1: Balance,
+    }
     /*
     *************** STORAGE ***************
     */
